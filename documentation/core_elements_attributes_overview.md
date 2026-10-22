@@ -32,7 +32,7 @@ The Position column is not part of the schema and serves only to illustrate how 
 | 4.1       | `<resourceType>`                      |                                | mandatory  | 1..1      |
 | 4.1.1     |                                       | `@resourceTypeGeneral`         | mandatory  | 1..1      |
 | 4.2       | `<sampleType>`                        |                                | optional   | 0..n      |
-| 4.2.1     |                                       | `@sampleScheme `              | optional   | 0..1      |
+| 4.2.1     |                                       | `@sampleTypeScheme `           | optional   | 0..1      |
 | 4.2.2     |                                       | `@schemeURI`                   | optional   | 0..1      |
 | 4.2.3     |                                       | `@valueURI`                    | optional   | 0..1      |
 | 4.2.4     |                                       | `@classificationCode`          | optional   | 0..1      |
@@ -75,7 +75,7 @@ The Position column is not part of the schema and serves only to illustrate how 
 | 7.2.3     | `<pointLatitude>`                     |                                | mandatory  | 1..1      |
 | 7.3       | `<geoLocationBox>`                    |                                | optional   | 0..1      |
 | 7.3.1     |                                       | `@coordinateSystem`            | mandatory  | 1...1     |
-| 73.2     | `<westBoundLongitude>`                |                                | mandatory  | 1..1      |
+| 7.3.2     | `<westBoundLongitude>`                |                                | mandatory  | 1..1      |
 | 7.3.3     | `<eastBoundLongitude>`                |                                | mandatory  | 1..1      |
 | 7.3.4     | `<southBoundLatitude>`                |                                | mandatory  | 1..1      |
 | 7.3.5     | `<northBoundLatitude>`                |                                | mandatory  | 1..1      |
@@ -93,4 +93,4 @@ The Position column is not part of the schema and serves only to illustrate how 
 | 8.1.3     | `<awardNumber>`                       |                                | optional   | 0..1      |
 | 8.1.3.1   |                                       | `@awardURI`                    | optional   | 0..1      |
 | 8.1.4     | `<awardTitle>`                        |                                | optional   | 0..1      |
-| 9        | `<language>`                          |                                | optional   | 0..1      |
+| 9         | `<language>`                          |                                | optional   | 0..1      |
