@@ -195,6 +195,47 @@
 									</xs:simpleContent>
 								</xs:complexType>
 							</xs:element>
+							<xs:element name="sampleType" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>This element is relevant for describing the type of sample. It can be used for controlled vocabulary or free text if no suitable vocabulary is available.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="sampletScheme" type="xs:string" use="optional">
+												<xs:annotation>
+													<xs:documentation>The name of the subject scheme or classification code or authority if one is used.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="schemeURI" type="xs:anyURI" use="optional">
+												<xs:annotation>
+													<xs:documentation>This attribute enables the origin of the vocabulary to be traced. </xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="valueURI" type="xs:anyURI" use="optional">
+												<xs:annotation>
+													<xs:documentation>The URI of the subject term.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="classificationCode" type="xs:string" use="optional">
+												<xs:annotation>
+													<xs:documentation>The classification code used for the subject term in the subject scheme.</xs:documentation>
+												</xs:annotation>
+											</xs:attribute>
+											<xs:attribute name="lang" default="en">
+												<xs:annotation>
+													<xs:documentation>distinguishes the language</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:language">
+														<xs:enumeration value="en"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
 							<xs:element name="material" minOccurs="0" maxOccurs="unbounded">
 								<xs:annotation>
 									<xs:documentation>Subject, keyword, classification code, or key phrase describing the resource.</xs:documentation>
