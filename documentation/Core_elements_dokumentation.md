@@ -605,13 +605,13 @@ Named place where the data was gathered or about which the data is focused.
 
 ### 7.2 `<geoLocationPoint>` *optional Element*
 - **Data type**: daci:point
-- **Occurrence**: 1..1
+- **Occurrence**: 0..1
 - **Definition**: A geographical point described by a single pair of latitude and longitude coordinates
 - **Purpose and meaning**: This wrapper is used to group the coordinate elements
 
 
 #### 7.2.1 `@coordinateSystem` *mandatory Attribute*
-- **Data type**: xs:language
+- **Data type**: xs:string
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: Attribute for specifying the coordinate system to which the specified coordinates belong
@@ -670,7 +670,7 @@ Together with `<westBoundLongitude>`, it defines the width of the area in an eas
 - **Additional information**: Mandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
 #### 7.3.4 `<southBoundLatitude>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:latitudeType
 - **Content**: decimal
 - **Occurrence**: 1..1
 - **Definition**: Defines the southern boundary of the rectangle and specifies the southernmost latitude of the area.
@@ -679,7 +679,7 @@ Together with `<northBoundLatitude>`, it determines the extent of the area in th
 - **Additional information**: mMandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
 #### 7.3.5 `<northBoundLatitude>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:latitudeType
 - **Content**: decimal
 - **Occurrence**: 1..1
 - **Definition**: Specifies the northern boundary of the rectangle and defines the highest latitude of the area.
