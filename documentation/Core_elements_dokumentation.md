@@ -174,7 +174,7 @@
 #### 3.1.6.2 `@affiliationIdentifierScheme` *optional Attribute*
 - **Data type**: xs:string
 - **Content**: free text
-- **Occurrence**: 1..1
+- **Occurrence**: 0..1
 - **Definition**: The name of the affiliation identifier scheme.
 - **Purpose and meaning**: This attribute enables the `@affilationIdentifier` attribute to be interpreted unambiguously and associated with a standardised identification system.
 
@@ -261,7 +261,7 @@
 
 ## 4.2 `<sampleType>` *optional Element*
 - **Data type**: xs:sting
-- **Occurrence**: 0..n
+- **Occurrence**: 0..1
 - **Definition**:Subject or keyword describing the resource.
 - **Content**: free text
 - **Purpose and meaning**: This element is relevant for describing the type of sample. It can be used for controlled vocabulary or free text if no suitable vocabulary is available.
@@ -271,7 +271,6 @@
 - **Occurrence**: 0..1
 - **Definition**: The name of the subject scheme or authority if one is used.
 - **Content**: free text
-- **Additional information**: To simplify reuse and mapping to DataCite, the attributes were not renamed; instead, they were reused in the form in which they appear in DataCite.
 
 ### 4.2.2 `@schemeURI` *optional Attribute*
 - **Data type**: xs:anyURI
@@ -443,7 +442,7 @@
 - **Data type**: xs:sting
 - **Content**: date in the format: YYYY, YYYY-MM-DD, YYYY-MM-DDThh:mm:ssTZD
 - **Occurrence**: 0..n
-- **Definition**: Sny date relevant for the samle or the metadata entry
+- **Definition**: Any date relevant for the samle or the metadata entry
 
 
 #### 5.1.1 `@dateType` *mandatory Attribute*
