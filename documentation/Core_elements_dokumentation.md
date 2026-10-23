@@ -232,6 +232,8 @@
 ``` xml 
 <igsn:entityTypeClassifications>
 		<igsn:resourceType resourceTypeGeneral="PhysicalObject">SamplingFeature</igsn:resourceType>
+		<igsn:sampleType >Sampling feature</igsn:sampleType>
+		<igsn:sampleType sampleTypeScheme="ODM2 Specimen Type Controlled Vocabulary" schemeURI="http://vocabulary.odm2.org/specimentype/grab" valueURI="http://vocabulary.odm2.org/specimentype/grab" lang="en">Grab</igsn:sampleType>
 		<igsn:material subjectScheme="Medium Vocabulary" schemeURI="http://vocabulary.odm2.org/medium" valueURI="http://vocabulary.odm2.org/medium/liquidAqueous" lang="en">Liquid aqueous</igsn:material>
 		<igsn:alternateMaterial subjectScheme="Classification (Rock)" schemeURI="https://www.geosamples.org/vocabularies/classification-rock" lang="en">Igneous</igsn:alternateMaterial>
 		<igsn:description descriptionType="Methods" lang="de">Drill>Electric>Holesaw
