@@ -687,6 +687,9 @@ Together with `<northBoundLatitude>`, it determines the extent of the area in th
 Together with `<southBoundLatitude>`, it determines the extent of the area in the north-south direction. 
 - **Additional information**: Mandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
+
+
+
 ### 7.4 `<geoLocationPolygon>` *optional Element*
 - **Data type**: xs:complexType
 - **Occurrence**: 0..1
@@ -694,7 +697,7 @@ Together with `<southBoundLatitude>`, it determines the extent of the area in th
 - **Purpose and meaning**: Enables the precise representation of administrative boundaries, natural areas, research areas or other non-rectangular areas. Whilst a [`<geoLocationBox>`](#93-geolocationbox-optional-element) always describes a square area, a polygon can, for example, accurately represent the boundaries of a national park, a river catchment area or an administrative unit.
 
 #### 7.4.1 `<polygonPoint>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:point
 - **Content**: decimal
 - **Occurrence**: 4..n
 - **Definition**: A point within a polygon.
@@ -717,7 +720,6 @@ If [`<geoLocationPolygon>`](#94-geolocationpolygon-optional-element) is used, `<
 - **Definition**: Longitudinal dimension of point
 - **Purpose and meaning**: Longitude of the geographic point expressed in decimal degrees (positive east) 
 - **Additional information**: Mandatory only if the optional element [`<polygonPoint>`](#941-polygonpoint-mandatory-element) is used
-
 
 #### 7.4.1.3 `<pointLatitude>` *mandatory Element*
 - **Data type**: daci:latitudeType
