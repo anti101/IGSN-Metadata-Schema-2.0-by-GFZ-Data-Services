@@ -407,9 +407,8 @@
 ### 4.5.1 `@descriptionType` *mandatory Attribute*
 - **Data type**: xs:language
 - **Content**: enumeration list
-- **Occurrence**: 0..1
+- **Occurrence**: 1..1
 - **Definition**: The type of the Description.
-- **Purpose and meaning**: Ensures that machines can unambiguously identify the language.
 - **Additional information**: If **other** is selected, the description must clearly state what it refers to, to ensure that it is processed correctly and appears in the right place on the landing page.
 
 ### 4.5.2 `@lang` *manatory Attribute*
@@ -497,7 +496,7 @@
 #### 6.1.1 `<alternateIdentifierType>` *mandatory Attribute*
 - **Data type**: xs:string
 - **Content**: free text
-- **Occurrence**: 0..n
+- **Occurrence**: 1..1
 - **Definition**: The type of the  [`<alternateIdentifier>`](#81-alternateidentifier-optional-element) 
 - **Purpose and meaning**: Mandatory only if  [`<alternateIdentifier>`](#81-alternateidentifier-optional-element) is used. This attribute is necessary to better understand the context in which the alternative identifier is used and to understand where the identifier comes from. Unlike [`@identifierType`](@identifierType), this attribute can accept free-form text to allow users to specify the exact context in which this alternative identifier is used.
 
@@ -508,14 +507,14 @@
 - **Definition**: IGSN of a resource from which this resource derives
 - **Purpose and meaning**: Enables the unambiguous hierarchical assignment of relationships for samples.For the sake of readability and to remain consistent with previous schemas, this element has not been renamed to ‘relatedIdentifier’ as in DataCite, even though it is mapped to it.
 
-#### 6.2.1 `<relationType>` *mandatory Attribute*
+#### 6.2.1 `@relationType` *mandatory Attribute*
 - **Data type**: daci:relationType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: This attribute is used to specify, in a machine-readable and standardised manner, the relationship.
 - **Purpose and meaning**: When used in the  [`<parentIdentifier>`](#82-parentidentifier-optional-element) element, this attribute is fixed to `IsPartOf`, as this element only permits this relationship type.
 
-#### 6.2.2 `<identifierType>` *mandatory Attribute*
+#### 6.2.2 `@identifierType` *mandatory Attribute*
 - **Data type**: daci:relatedIdentifierType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
@@ -528,13 +527,13 @@
 - **Definition**: Identifiers of related resources. These must be globally unique identifiers.
 - **Purpose and meaning**: This element is used to retrieve the ID so that resources related to this sample can be linked.
 
-#### 6.3.1 `<relationType>` *mandatory Attribute*
+#### 6.3.1 `@relationType` *mandatory Attribute*
 - **Data type**: daci:relationType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: This attribute is used to specify, in a machine-readable and standardised manner, the relationship between the resource specified in the element and the resource described here.
 
-#### 6.3.2 `<identifierType>` *mandatory Attribute*
+#### 6.3.2 `@identifierType` *mandatory Attribute*
 - **Data type**: daci:relatedIdentifierType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
