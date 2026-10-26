@@ -798,7 +798,7 @@ If [`<geoLocationPolygon>`](#94-geolocationpolygon-optional-element) is used, `<
 - **Definition**: The code assigned by the funder to a sponsored award (grant).
 
 
-##### 8.1.2.2 `<awardURI>` *optional Attribute*
+##### 8.1.2.2 `@awardURI` *optional Attribute*
 - **Data type**: xs:anyURI
 - **Content**: URI
 - **Occurrence**: 0..1
