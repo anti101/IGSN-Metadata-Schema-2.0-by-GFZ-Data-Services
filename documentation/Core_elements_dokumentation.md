@@ -9,7 +9,7 @@
 - **Data type**: xs:string
 - **Content**: free text
 - **Occurrence**: 1..1
--  **Definition**: The Identifier is a unique string that identifies a resource. IGSN (International GeoSample Number) registered by an IGSN member.
+-  **Definition**: The Identifier is a unique string that identifies a resource. IGSN (International GeoSample Number) registered by an IGSN member. Purpose and meaning: This element is used to store the identifier of the resource, thereby ensuring that the resource can be uniquely identified. The identifier for all objects registered with DataCite must be DOI. It is recommended to create a dedicated IGSN ID Repository with an individual DOI prefix.
 - **Purpose and meaning**: This element is used to store the identifier of the resource, thereby ensuring that the resource can be uniquely identified
 
 
@@ -75,9 +75,7 @@
 - **Data type**: xs:complexType
 - **Content**: No entries expected
 - **Occurrence**: 1..1
--  **Definition**: A wrapper element that bundles all elements relating to specific persons and organizations
-- **Purpose and meaning**: This wrapper is designed to group together all the agents (people and organizations) involved in the resource and make them available in a single location within the schema
-- **Additional information**: As part of the harmonisation process, the elements relating to the people involved in the publication were grouped together to improve readability. This has made the schema easier to reuse and understand.
+-  **Definition**:A wrapper element that bundles all elements relating to specific persons and organizations which includs crators, contributors and publisher. This wrapper is designed to group together all the agents (people and organizations) involved in the resource and make them available in a single location within the schema. As part of the harmonisation process, the elements relating to the people involved in the publication were grouped together to improve readability. This has made the schema easier to reuse and understand. Using the DataCite property ‘contributor’ allows for the comprehensive inclusion of all possible types of individuals and organizations without losing any metadata. The different agents are mapped to ‘Creator’ or ‘Contributor’ in DataCite, depending on the contributorType.
 
 ## 3.1 `<contributor>` *optional Element*
 - **Data type**: xs:complexType
@@ -174,7 +172,7 @@
 #### 3.1.6.2 `@affiliationIdentifierScheme` *optional Attribute*
 - **Data type**: xs:string
 - **Content**: free text
-- **Occurrence**: 1..1
+- **Occurrence**: 0..1
 - **Definition**: The name of the affiliation identifier scheme.
 - **Purpose and meaning**: This attribute enables the `@affilationIdentifier` attribute to be interpreted unambiguously and associated with a standardised identification system.
 
@@ -232,6 +230,8 @@
 ``` xml 
 <igsn:entityTypeClassifications>
 		<igsn:resourceType resourceTypeGeneral="PhysicalObject">SamplingFeature</igsn:resourceType>
+		<igsn:sampleType >Sampling feature</igsn:sampleType>
+		<igsn:sampleType sampleTypeScheme="ODM2 Specimen Type Controlled Vocabulary" schemeURI="http://vocabulary.odm2.org/specimentype/grab" valueURI="http://vocabulary.odm2.org/specimentype/grab" lang="en">Grab</igsn:sampleType>
 		<igsn:material subjectScheme="Medium Vocabulary" schemeURI="http://vocabulary.odm2.org/medium" valueURI="http://vocabulary.odm2.org/medium/liquidAqueous" lang="en">Liquid aqueous</igsn:material>
 		<igsn:alternateMaterial subjectScheme="Classification (Rock)" schemeURI="https://www.geosamples.org/vocabularies/classification-rock" lang="en">Igneous</igsn:alternateMaterial>
 		<igsn:description descriptionType="Methods" lang="de">Drill>Electric>Holesaw
@@ -261,7 +261,7 @@
 
 ## 4.2 `<sampleType>` *optional Element*
 - **Data type**: xs:sting
-- **Occurrence**: 0..n
+- **Occurrence**: 0..1
 - **Definition**:Subject or keyword describing the resource.
 - **Content**: free text
 - **Purpose and meaning**: This element is relevant for describing the type of sample. It can be used for controlled vocabulary or free text if no suitable vocabulary is available.
@@ -271,7 +271,6 @@
 - **Occurrence**: 0..1
 - **Definition**: The name of the subject scheme or authority if one is used.
 - **Content**: free text
-- **Additional information**: To simplify reuse and mapping to DataCite, the attributes were not renamed; instead, they were reused in the form in which they appear in DataCite.
 
 ### 4.2.2 `@schemeURI` *optional Attribute*
 - **Data type**: xs:anyURI
@@ -406,9 +405,8 @@
 ### 4.5.1 `@descriptionType` *mandatory Attribute*
 - **Data type**: xs:language
 - **Content**: enumeration list
-- **Occurrence**: 0..1
+- **Occurrence**: 1..1
 - **Definition**: The type of the Description.
-- **Purpose and meaning**: Ensures that machines can unambiguously identify the language.
 - **Additional information**: If **other** is selected, the description must clearly state what it refers to, to ensure that it is processed correctly and appears in the right place on the landing page.
 
 ### 4.5.2 `@lang` *manatory Attribute*
@@ -443,7 +441,7 @@
 - **Data type**: xs:sting
 - **Content**: date in the format: YYYY, YYYY-MM-DD, YYYY-MM-DDThh:mm:ssTZD
 - **Occurrence**: 0..n
-- **Definition**: Sny date relevant for the samle or the metadata entry
+- **Definition**: Any date relevant for the samle or the metadata entry
 
 
 #### 5.1.1 `@dateType` *mandatory Attribute*
@@ -496,7 +494,7 @@
 #### 6.1.1 `<alternateIdentifierType>` *mandatory Attribute*
 - **Data type**: xs:string
 - **Content**: free text
-- **Occurrence**: 0..n
+- **Occurrence**: 1..1
 - **Definition**: The type of the  [`<alternateIdentifier>`](#81-alternateidentifier-optional-element) 
 - **Purpose and meaning**: Mandatory only if  [`<alternateIdentifier>`](#81-alternateidentifier-optional-element) is used. This attribute is necessary to better understand the context in which the alternative identifier is used and to understand where the identifier comes from. Unlike [`@identifierType`](@identifierType), this attribute can accept free-form text to allow users to specify the exact context in which this alternative identifier is used.
 
@@ -507,14 +505,14 @@
 - **Definition**: IGSN of a resource from which this resource derives
 - **Purpose and meaning**: Enables the unambiguous hierarchical assignment of relationships for samples.For the sake of readability and to remain consistent with previous schemas, this element has not been renamed to ‘relatedIdentifier’ as in DataCite, even though it is mapped to it.
 
-#### 6.2.1 `<relationType>` *mandatory Attribute*
+#### 6.2.1 `@relationType` *mandatory Attribute*
 - **Data type**: daci:relationType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: This attribute is used to specify, in a machine-readable and standardised manner, the relationship.
 - **Purpose and meaning**: When used in the  [`<parentIdentifier>`](#82-parentidentifier-optional-element) element, this attribute is fixed to `IsPartOf`, as this element only permits this relationship type.
 
-#### 6.2.2 `<identifierType>` *mandatory Attribute*
+#### 6.2.2 `@identifierType` *mandatory Attribute*
 - **Data type**: daci:relatedIdentifierType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
@@ -527,13 +525,13 @@
 - **Definition**: Identifiers of related resources. These must be globally unique identifiers.
 - **Purpose and meaning**: This element is used to retrieve the ID so that resources related to this sample can be linked.
 
-#### 6.3.1 `<relationType>` *mandatory Attribute*
+#### 6.3.1 `@relationType` *mandatory Attribute*
 - **Data type**: daci:relationType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: This attribute is used to specify, in a machine-readable and standardised manner, the relationship between the resource specified in the element and the resource described here.
 
-#### 6.3.2 `<identifierType>` *mandatory Attribute*
+#### 6.3.2 `@identifierType` *mandatory Attribute*
 - **Data type**: daci:relatedIdentifierType
 - **Content**: enumeration list
 - **Occurrence**: 1..1
@@ -605,13 +603,13 @@ Named place where the data was gathered or about which the data is focused.
 
 ### 7.2 `<geoLocationPoint>` *optional Element*
 - **Data type**: daci:point
-- **Occurrence**: 1..1
+- **Occurrence**: 0..1
 - **Definition**: A geographical point described by a single pair of latitude and longitude coordinates
 - **Purpose and meaning**: This wrapper is used to group the coordinate elements
 
 
 #### 7.2.1 `@coordinateSystem` *mandatory Attribute*
-- **Data type**: xs:language
+- **Data type**: xs:string
 - **Content**: enumeration list
 - **Occurrence**: 1..1
 - **Definition**: Attribute for specifying the coordinate system to which the specified coordinates belong
@@ -670,7 +668,7 @@ Together with `<westBoundLongitude>`, it defines the width of the area in an eas
 - **Additional information**: Mandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
 #### 7.3.4 `<southBoundLatitude>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:latitudeType
 - **Content**: decimal
 - **Occurrence**: 1..1
 - **Definition**: Defines the southern boundary of the rectangle and specifies the southernmost latitude of the area.
@@ -679,7 +677,7 @@ Together with `<northBoundLatitude>`, it determines the extent of the area in th
 - **Additional information**: mMandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
 #### 7.3.5 `<northBoundLatitude>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:latitudeType
 - **Content**: decimal
 - **Occurrence**: 1..1
 - **Definition**: Specifies the northern boundary of the rectangle and defines the highest latitude of the area.
@@ -687,6 +685,8 @@ Together with `<northBoundLatitude>`, it determines the extent of the area in th
 Together with `<southBoundLatitude>`, it determines the extent of the area in the north-south direction. 
 - **Additional information**: Mandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
+  
+  
 ### 7.4 `<geoLocationPolygon>` *optional Element*
 - **Data type**: xs:complexType
 - **Occurrence**: 0..1
@@ -694,7 +694,7 @@ Together with `<southBoundLatitude>`, it determines the extent of the area in th
 - **Purpose and meaning**: Enables the precise representation of administrative boundaries, natural areas, research areas or other non-rectangular areas. Whilst a [`<geoLocationBox>`](#93-geolocationbox-optional-element) always describes a square area, a polygon can, for example, accurately represent the boundaries of a national park, a river catchment area or an administrative unit.
 
 #### 7.4.1 `<polygonPoint>` *mandatory Element*
-- **Data type**: xs:language
+- **Data type**: daci:point
 - **Content**: decimal
 - **Occurrence**: 4..n
 - **Definition**: A point within a polygon.
@@ -717,7 +717,6 @@ If [`<geoLocationPolygon>`](#94-geolocationpolygon-optional-element) is used, `<
 - **Definition**: Longitudinal dimension of point
 - **Purpose and meaning**: Longitude of the geographic point expressed in decimal degrees (positive east) 
 - **Additional information**: Mandatory only if the optional element [`<polygonPoint>`](#941-polygonpoint-mandatory-element) is used
-
 
 #### 7.4.1.3 `<pointLatitude>` *mandatory Element*
 - **Data type**: daci:latitudeType
@@ -796,7 +795,7 @@ If [`<geoLocationPolygon>`](#94-geolocationpolygon-optional-element) is used, `<
 - **Definition**: The code assigned by the funder to a sponsored award (grant).
 
 
-##### 8.1.2.2 `<awardURI>` *optional Attribute*
+##### 8.1.2.2 `@awardURI` *optional Attribute*
 - **Data type**: xs:anyURI
 - **Content**: URI
 - **Occurrence**: 0..1
