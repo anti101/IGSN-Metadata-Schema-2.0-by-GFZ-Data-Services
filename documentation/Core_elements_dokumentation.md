@@ -9,7 +9,7 @@
 - **Data type**: xs:string
 - **Content**: free text
 - **Occurrence**: 1..1
--  **Definition**: The Identifier is a unique string that identifies a resource. IGSN (International GeoSample Number) registered by an IGSN member.
+-  **Definition**: The Identifier is a unique string that identifies a resource. IGSN (International GeoSample Number) registered by an IGSN member. Purpose and meaning: This element is used to store the identifier of the resource, thereby ensuring that the resource can be uniquely identified. The identifier for all objects registered with DataCite must be DOI. It is recommended to create a dedicated IGSN ID Repository with an individual DOI prefix.
 - **Purpose and meaning**: This element is used to store the identifier of the resource, thereby ensuring that the resource can be uniquely identified
 
 
@@ -75,9 +75,7 @@
 - **Data type**: xs:complexType
 - **Content**: No entries expected
 - **Occurrence**: 1..1
--  **Definition**: A wrapper element that bundles all elements relating to specific persons and organizations
-- **Purpose and meaning**: This wrapper is designed to group together all the agents (people and organizations) involved in the resource and make them available in a single location within the schema
-- **Additional information**: As part of the harmonisation process, the elements relating to the people involved in the publication were grouped together to improve readability. This has made the schema easier to reuse and understand.
+-  **Definition**:A wrapper element that bundles all elements relating to specific persons and organizations which includs crators, contributors and publisher. This wrapper is designed to group together all the agents (people and organizations) involved in the resource and make them available in a single location within the schema. As part of the harmonisation process, the elements relating to the people involved in the publication were grouped together to improve readability. This has made the schema easier to reuse and understand. Using the DataCite property ‘contributor’ allows for the comprehensive inclusion of all possible types of individuals and organizations without losing any metadata. The different agents are mapped to ‘Creator’ or ‘Contributor’ in DataCite, depending on the contributorType.
 
 ## 3.1 `<contributor>` *optional Element*
 - **Data type**: xs:complexType
