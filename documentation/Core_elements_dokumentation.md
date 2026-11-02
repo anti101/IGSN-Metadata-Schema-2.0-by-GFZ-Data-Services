@@ -685,9 +685,8 @@ Together with `<northBoundLatitude>`, it determines the extent of the area in th
 Together with `<southBoundLatitude>`, it determines the extent of the area in the north-south direction. 
 - **Additional information**: Mandatory only if the optional element [`<geoLocationBox>`](#93-geolocationbox-optional-element) is used
 
-
-
-
+  
+  
 ### 7.4 `<geoLocationPolygon>` *optional Element*
 - **Data type**: xs:complexType
 - **Occurrence**: 0..1
