@@ -1,10 +1,10 @@
-This is a simplified mapping designed to provide a quick overview of the elements used. However, there are elements that are mapped to other elements in DataCite depending on their type. A fine-grained and precise mapping is not, however, the aim of Core and is only provided in sample-specific profiles using an XSLT.
+This mapping is designed to provide a quick overview of the elements used.
 
 | core position | IGSN Core by GFZ Dataservices| DataCite |
 | :--: | :--: | :--: |
 | 1       | `<identifier>`           |[`<identifier>`](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/identifier/#id1) | 
 | 1.1     | `@identifierType`        | [@identifierType](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/identifier/#a-identifiertype) | 
-| 2       | `<name>`                 | [`<title>` ](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/title/)|
+| 2       | `<name>`                 | [`<title>`](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/title/)|
 | 2.1     | `@titleType`             | [@titleType](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/title/#a-titletype)  | 
 | 2.2     | `@lang`                  | [ `xml:lang`](https://datacite-metadata-schema.readthedocs.io/en/4.7/properties/title/#lang-xml-lang) | 
 | 3       | `<agents>`               | - |  `<contributers>` (ID 10) |
