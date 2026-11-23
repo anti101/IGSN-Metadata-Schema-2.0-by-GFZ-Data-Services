@@ -207,7 +207,7 @@
 								<xs:complexType>
 									<xs:simpleContent>
 										<xs:extension base="xs:string">
-											<xs:attribute name="sampletScheme" type="xs:string" use="optional">
+											<xs:attribute name="sampleTypeScheme" type="xs:string" use="optional">
 												<xs:annotation>
 													<xs:documentation>The name of the subject scheme or classification code or authority if one is used.</xs:documentation>
 												</xs:annotation>
